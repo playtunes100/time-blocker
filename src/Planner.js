@@ -54,7 +54,7 @@ function Highlights(){
                         </span>
                         <hr className='dotted-line'/>
                         <span className='highlights-text'>
-                            I"m going to get married
+                            Blank state illustration
                         </span>
                     </div>
                     <div>
@@ -63,8 +63,12 @@ function Highlights(){
                 </div>
                 <div className='tasks-col'>
                     <h4>IMPORTANT TASKS</h4>
-                    <div className='important-tasks'></div>
-                    <div className='important-tasks'></div>
+                    <div className='important-tasks'>
+                        <span className='highlights-text'>Fix bug with timezones</span>
+                    </div>
+                    <div className='important-tasks'>
+                        <span className='highlights-text'>Update Modal docs that have a place to live with me</span>
+                    </div>
                     <div className='important-tasks'></div>
                 </div>
             </Row>
