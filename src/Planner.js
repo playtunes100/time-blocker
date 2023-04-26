@@ -10,7 +10,10 @@ export default function Planner(){
     return(
         <Container>
             <Date/>
-            <Highlights/>
+            <Row className='highlights-row'>
+                <Highlights/>
+                <Important/>
+            </Row>
         </Container>  
     )
 
@@ -44,40 +47,42 @@ function Date(){
 function Highlights(){
 
     return(
-            <Row className='highlights-row'>
-                <div className='highlights-col'>
-                    <h4>DAILY HIGHLIGHT</h4>
-                    <div className='daily-highlights'>
-                        <span className='highlights-text'>
-                            What a wonderful day
-                        </span>
-                        <hr className='dotted-line'/>
-                        <span className='highlights-text'>
-                            Blank state illustration
-                        </span>
-                    </div>
-                    <div>
-                        <ul>
-                            <li><span className='highlights-text'>EVERYDAY SHOULD HAVE A HIGHLIGHT</span></li>
-                            <li><span className='highlights-text'>CHOOSE SOMETHING YOU ACTUALLY <strong>WANT</strong> TO DO</span></li>
-                            <li><span className='highlights-text'>SUGGESTED LENGTH: 60-90 MINUTES</span></li>
-                        </ul>
-                    </div>
-                    <div>
-                        
-                    </div>
-                </div>
-                <div className='tasks-col'>
-                    <h4>IMPORTANT TASKS</h4>
-                    <div className='important-tasks'>
-                        <span className='highlights-text'>Fix bug with timezones</span>
-                    </div>
-                    <div className='important-tasks'>
-                        <span className='highlights-text'>Update Modal docs that have a place to live with me</span>
-                    </div>
-                    <div className='important-tasks'></div>
-                </div>
-            </Row>
+        <div className='highlights-col'>
+            <h4>DAILY HIGHLIGHT</h4>
+            <div className='daily-highlights'>
+                <span className='highlights-text'>
+                    What a wonderful day
+                </span>
+                <hr className='dotted-line'/>
+                <span className='highlights-text'>
+                    Blank state illustration
+                </span>
+            </div>
+            <div>
+                <ul>
+                    <li><span className='highlights-text'>EVERYDAY SHOULD HAVE A HIGHLIGHT</span></li>
+                    <li><span className='highlights-text'>CHOOSE SOMETHING YOU ACTUALLY <strong>WANT</strong> TO DO</span></li>
+                    <li><span className='highlights-text'>SUGGESTED LENGTH: 60-90 MINUTES</span></li>
+                </ul>
+            </div>
+            
+        </div>
+    )
+}
+
+function Important(){
+
+    return(
+        <div className='tasks-col'>
+            <h4>IMPORTANT TASKS</h4>
+            <div className='important-tasks'>
+                <span className='highlights-text'>Fix bug with timezones</span>
+            </div>
+            <div className='important-tasks'>
+                <span className='highlights-text'>Update Modal docs that have a place to live with me</span>
+            </div>
+            <div className='important-tasks'></div>
+        </div>
     )
 }
 
