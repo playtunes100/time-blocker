@@ -1,10 +1,9 @@
 import './Planner.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Stack from 'react-bootstrap/Stack';
+
 
 export default function Planner(){
 
@@ -58,6 +57,13 @@ function Highlights(){
                         </span>
                     </div>
                     <div>
+                        <ul>
+                            <li><span className='highlights-text'>EVERYDAY SHOULD HAVE A HIGHLIGHT</span></li>
+                            <li><span className='highlights-text'>CHOOSE SOMETHING YOU ACTUALLY <strong>WANT</strong> TO DO</span></li>
+                            <li><span className='highlights-text'>SUGGESTED LENGTH: 60-90 MINUTES</span></li>
+                        </ul>
+                    </div>
+                    <div>
                         
                     </div>
                 </div>
@@ -74,3 +80,4 @@ function Highlights(){
             </Row>
     )
 }
+
