@@ -92,3 +92,28 @@
 .important-tasks::-webkit-scrollbar {
     display: none;
 }
+
+.board-row {
+    display: flex;
+}
+
+.board-outer {
+    width: 100%;
+    display:flex;
+    overflow-x:scroll;
+    background-color: #e3e3e3;
+}
+
+.board {
+    width:500px;
+    height: 500px;
+    background: radial-gradient(circle, #979797 10%, transparent 11%);
+        background-size: 1em 1em;
+        background-color: #ffffff;
+        opacity: 1
+}
+
+.board-middle {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}

@@ -14,6 +14,7 @@ export default function Planner(){
                 <Highlights/>
                 <Important/>
             </Row>
+            <Board/>
         </Container>  
     )
 
@@ -83,6 +84,35 @@ function Important(){
             </div>
             <div className='important-tasks'></div>
         </div>
+    )
+}
+
+function Board(){
+
+
+    return(
+        <Row className='board-row'>
+            <div className='board-outer'>
+                <div className='board-left'>
+                    <h4>PLAN</h4>
+                    <div className='board'>
+                        <span>what the hell</span>
+                    </div>
+                </div>
+                <div className='board-middle'>
+                    <h4>REALITY</h4>
+                    <div className='board'>
+                        <span>what the hell</span>
+                    </div>
+                </div>
+                <div className='board-right'>
+                    <h4>REVISED</h4>
+                    <div className='board'>
+                        <span>what the hell</span>
+                    </div>
+                </div>
+            </div>
+        </Row>
     )
 }
 
