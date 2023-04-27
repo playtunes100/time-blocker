@@ -99,16 +99,46 @@
 
 .board-outer {
     width: 100%;
+    margin: 1rem;
     display:flex;
+    flex-direction: column;
     overflow-x:scroll;
+    
+}
+
+.board-time {
+    width: 100rem;
+    padding: 10px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    row-gap: 2.7rem;
+    background-color: #ffffff;
+}
+
+
+.board-hs {
+    display: flex;
+    margin-left: 3rem;
+}
+.board-h {
+    margin: 2px;
+    width: 500px;
+}
+
+.board-main {
+    display: flex;
     background-color: #e3e3e3;
 }
 
 .board {
     width:500px;
-    height: 500px;
+    height: 700px;
+    border: #e3e3e3 solid;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     background: radial-gradient(circle, #979797 10%, transparent 11%);
-        background-size: 1em 1em;
+        background-size: 2rem 2rem;
         background-color: #ffffff;
         opacity: 1
 }

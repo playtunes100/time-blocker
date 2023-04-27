@@ -93,22 +93,41 @@ function Board(){
     return(
         <Row className='board-row'>
             <div className='board-outer'>
-                <div className='board-left'>
-                    <h4>PLAN</h4>
-                    <div className='board'>
-                        <span>what the hell</span>
-                    </div>
+                <div className='board-hs'>
+                    <h4 className='board-h'>PLAN</h4>
+                    <h4 className='board-h'>REALITY</h4>
+                    <h4 className='board-h'>REVISED</h4>
                 </div>
-                <div className='board-middle'>
-                    <h4>REALITY</h4>
-                    <div className='board'>
-                        <span>what the hell</span>
+                <div className='board-main'>
+                    <div className='board-time'>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                        <span>11</span>
+                        <span>12</span>
+                        <span>13</span>
+                        <span>14</span>
+                        <span>15</span>
+                        <span>16</span>
+                        <span>17</span>
                     </div>
-                </div>
-                <div className='board-right'>
-                    <h4>REVISED</h4>
-                    <div className='board'>
-                        <span>what the hell</span>
+                    <div className='board-left'>
+                        
+                        <div className='board'>
+                            
+                        </div>
+                    </div>
+                    <div className='board-middle'>
+                        
+                        <div className='board'>
+                            
+                        </div>
+                    </div>
+                    <div className='board-right'>
+                        <div className='board'>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
