@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { Rnd } from 'react-rnd';
 
 
 export default function Planner(){
@@ -112,26 +113,56 @@ function Board(){
                         <span>16</span>
                         <span>17</span>
                     </div>
-                    <div className='board-left'>
-                        
-                        <div className='board'>
-                            
-                        </div>
-                    </div>
-                    <div className='board-middle'>
-                        
-                        <div className='board'>
-                            
-                        </div>
-                    </div>
-                    <div className='board-right'>
-                        <div className='board'>
-                            
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </Row>
     )
 }
+
+
+function Box(){
+    
+    return(
+        <div
+      className="box"
+      style={{ margin: 0, width: '4rem', height: '4rem', paddingBottom: '40px' }}
+    >
+      <article className="media">
+        <div className="media-left">
+          <figure className="image is-64x64">
+            <img src="https://avatars1.githubusercontent.com/u/10220449?v=3&s=460" draggable="false" alt="github avatar" />
+          </figure>
+        </div>
+        <div className="media-content">
+          <div className="content">
+            <p>
+              <strong>bokuweb</strong> <small>@bokuweb17</small> <small>31m</small>
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Aenean efficitur sit amet massa fringilla egestas.
+              Nullam condimentum luctus turpis.
+            </p>
+          </div>
+          <nav className="level is-mobile">
+            <div className="level-left">
+              <a className="level-item">
+                <span className="icon is-small"><i className="fa fa-reply" /></span>
+              </a>
+              <a className="level-item">
+                <span className="icon is-small"><i className="fa fa-retweet" /></span>
+              </a>
+              <a className="level-item">
+                <span className="icon is-small"><i className="fa fa-heart" /></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+    )
+
+}
+
+
 

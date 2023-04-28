@@ -107,43 +107,32 @@
 }
 
 .board-time {
-    width: 100rem;
+    width: 2vw;
     padding: 10px;
     text-align: center;
     display:flex;
     flex-direction: column;
-    row-gap: 2.7rem;
-    background-color: #ffffff;
+    row-gap: 3vw;
+    background-color: transparent;
 }
 
 
 .board-hs {
     display: flex;
     margin-left: 3rem;
+    
 }
 .board-h {
-    margin: 2px;
-    width: 500px;
+    margin-bottom: 2px;
+    width: 33vw;
+    margin-right: 4rem;
 }
 
 .board-main {
     display: flex;
-    background-color: #e3e3e3;
+    border-top: 3px solid #979797;
+    background:radial-gradient(circle at 12% 12%, #979797 5%, transparent 1%) top left repeat, linear-gradient(#e3e3e3, #e3e3e3) no-repeat border-box, linear-gradient(#e3e3e3, #e3e3e3) no-repeat border-box;
+    background-size: 3vw 3vw, 3vw 100%, 3vw 100%;
+    background-position: 0 0, 30.4vw 0, 63.3vw 0;
 }
 
-.board {
-    width:500px;
-    height: 700px;
-    border: #e3e3e3 solid;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    background: radial-gradient(circle, #979797 10%, transparent 11%);
-        background-size: 2rem 2rem;
-        background-color: #ffffff;
-        opacity: 1
-}
-
-.board-middle {
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
