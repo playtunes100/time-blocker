@@ -1,4 +1,5 @@
 import './Planner.css';
+import { useState} from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
@@ -113,7 +114,7 @@ function Board(){
                         <span>16</span>
                         <span>17</span>
                     </div>
-                    
+                    <TaskList/>
                 </div>
             </div>
         </Row>
@@ -121,47 +122,59 @@ function Board(){
 }
 
 
-function Box(){
+function Task({title, ...props}){
     
     return(
-        <div
-      className="box"
-      style={{ margin: 0, width: '4rem', height: '4rem', paddingBottom: '40px' }}
-    >
-      <article className="media">
-        <div className="media-left">
-          <figure className="image is-64x64">
-            <img src="https://avatars1.githubusercontent.com/u/10220449?v=3&s=460" draggable="false" alt="github avatar" />
-          </figure>
-        </div>
-        <div className="media-content">
-          <div className="content">
-            <p>
-              <strong>bokuweb</strong> <small>@bokuweb17</small> <small>31m</small>
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Aenean efficitur sit amet massa fringilla egestas.
-              Nullam condimentum luctus turpis.
-            </p>
-          </div>
-          <nav className="level is-mobile">
-            <div className="level-left">
-              <a className="level-item">
-                <span className="icon is-small"><i className="fa fa-reply" /></span>
-              </a>
-              <a className="level-item">
-                <span className="icon is-small"><i className="fa fa-retweet" /></span>
-              </a>
-              <a className="level-item">
-                <span className="icon is-small"><i className="fa fa-heart" /></span>
-              </a>
-            </div>
-          </nav>
-        </div>
-      </article>
-    </div>
+         <Rnd
+            default={{
+                x: 0,
+                y: 100,
+                width: '30vw',
+                height: '6.6vw',
+            }}
+            className="task"
+            minWidth={100}
+            minHeight={50}
+            dragGrid={[40,40]}
+            bounds="parent"
+            >
+            <p>{title}</p>
+        </Rnd>
     )
 
+}
+
+function TaskList(){
+    const [list, setList] = useState(
+        [
+            {
+              id: 1,
+              title: "Attend a boring lecture",
+              date: "17/02/2023",
+              from: "11:00",
+              to: "12:30",
+            },
+            {
+              id: 2,
+              title: "Wash dished",
+              date: "17/02/2023",
+              from: "12:00",
+              to: "13:30",
+            },
+            {
+              id: 3,
+              title: "Do my hair",
+              date: "17/02/2023",
+              from: "15:00",
+              to: "17:00",
+            },
+        ]
+    )
+    return(
+        list.map((i) => {
+            return(<Task title={i.title}/>)
+        })
+    )
 }
 
 

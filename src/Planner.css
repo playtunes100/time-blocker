@@ -136,3 +136,20 @@
     background-position: 0 0, 30.4vw 0, 63.3vw 0;
 }
 
+.task {
+    margin: 0;
+    width: 30vw;
+    height: 4rem;
+    border: 2px solid #979797;
+    border-radius: 10px;
+    background-color: #979797;
+    transition: padding 0.1s;
+}
+
+.task:hover {
+    box-shadow: 0px 5px 5px #888888;
+    padding:2px;
+    border: 2px solid #c0bfbf;
+    z-index: 2;
+    }
+
