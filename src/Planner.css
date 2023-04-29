@@ -108,7 +108,9 @@
 
 .board-time {
     width: 2vw;
-    padding: 10px;
+    padding: 0.7vw;
+ 
+    font-size: 2vw;
     text-align: center;
     display:flex;
     flex-direction: column;
@@ -137,10 +139,12 @@
 }
 
 .task {
+    font-size: 2vw;
     margin: 0;
     width: 30vw;
     height: 4rem;
-    border: 2px solid #979797;
+    overflow:hidden;
+    border: 2px solid #c0bfbf;
     border-radius: 10px;
     background-color: #979797;
     transition: padding 0.1s;
@@ -153,3 +157,14 @@
     z-index: 2;
     }
 
+
+.addtask {
+    width: fit-content;
+    position: fixed;
+    bottom: 5vw;
+    right: 5vw;
+    border-radius: 50%;
+    box-shadow: 0px 5px 5px #888888;
+    z-index: 3;
+
+}
