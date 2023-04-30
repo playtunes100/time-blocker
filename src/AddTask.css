@@ -1,0 +1,31 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #999999b6;
+}
+
+.modal-content {
+    width: 40vw;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+    border: 0.1px #999999 solid;
+    border-radius: 10px;
+    padding: 10px;
+    
+    
+}
+
+@media only screen and (max-width: 500px) {
+    .modal-content {
+        width: 80vw;
+        
+        
+    }
+}
