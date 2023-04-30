@@ -1,4 +1,4 @@
-import { useState, useRef} from 'react';
+import { useRef} from 'react';
 import './AddTask.css';
 
 export default function AddTask(){
@@ -19,23 +19,25 @@ export default function AddTask(){
                 </svg>
             </div>
 
-            <div className='modal' ref={modal} onClick={handleClose}>
+            <div className='modal' ref={modal}>
                 <div className='modal-content'>
-                <form className='addtaskform'>
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" placeholder="Title..."/>
+                    <div className='addtaskdiv'>
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" placeholder="Title..."/>
 
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" placeholder="Location"/>
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="Location"/>
 
-                    <label for="from">From</label>
-                    <input type="datetime-local" id="from" name="from"/>
+                        <label for="from">From</label>
+                        <input type="datetime-local" id="from" name="from"/>
 
-                    <label for="to">To</label>
-                    <input type="datetime-local" id="to" name="to"/>
-
-                    <input type="submit" value="Submit"/>
-                </form>
+                        <label for="to">To</label>
+                        <input type="datetime-local" id="to" name="to"/>  
+                    </div>
+                    <div>
+                        <button className='button-cancel' onClick={handleClose}>Cancel</button>
+                        <button className='button-submit'> Save</button>
+                    </div>
                 </div>
             </div>
 

@@ -2,7 +2,6 @@
     margin: 1rem;
     border: 1.5px solid #aeaeae;
     border-radius: 10px;
-    padding: 10px;
 }
 .date-picker {
     float: left;
@@ -22,15 +21,19 @@
 
 }
 
+input[type=text] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+
 .calender-icon {
     float: left;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
 }
 
 .title-icon {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
 }
 
 

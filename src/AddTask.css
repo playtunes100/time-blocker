@@ -18,8 +18,12 @@
     border: 0.1px #999999 solid;
     border-radius: 10px;
     padding: 10px;
-    
-    
+}
+
+.addtaskdiv{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -28,4 +32,41 @@
         
         
     }
+}
+
+input[type=datetime-local] {
+    border: none;
+    border-radius: 5px;
+  }
+
+.button-submit {
+    padding:10px;
+    margin: 10px;
+    border:none;
+    background-color:#1e38cfef;
+    color:#fff;
+    font-size: 2vw;
+    border-radius:5px;
+    width:10vw;
+    float: right;
+}
+
+.button-submit:hover {
+    background-color:#384ecfef;
+}
+
+.button-cancel {
+    padding:10px;
+    margin: 10px;
+    border:none;
+    background-color:#cf1e1eef;
+    color:#fff;
+    font-size: 2vw;
+    border-radius:5px;
+    width:10vw;
+    float:left;
+}
+
+.button-cancel:hover {
+    background-color:#d13737ef;
 }

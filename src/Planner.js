@@ -121,7 +121,7 @@ function Board(){
 }
 
 
-function Task({title, ...props}){
+function Task({title,from, to, ...props}){
     
     return(
          <Rnd
@@ -138,6 +138,7 @@ function Task({title, ...props}){
             bounds="parent"
             >
             <p>{title}</p>
+            <p>{from} to {to}</p>
         </Rnd>
     )
 
@@ -171,7 +172,7 @@ function TaskList(){
     )
     return(
         list.map((i) => {
-            return(<Task key={i.id} title={i.title}/>)
+            return(<Task key={i.id} title={i.title} from={i.from} to={i.to} />)
         })
     )
 }
