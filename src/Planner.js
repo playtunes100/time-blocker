@@ -1,10 +1,19 @@
 import './Planner.css';
 import { useState} from 'react'
-import { Rnd } from 'react-rnd';
 import AddTask from './AddTask.js';
-
-
+import TaskList from './TaskList.js';
 export default function Planner(){
+    const [tasklist, setTasklist] = useState([])
+    const [activeTask, setActiveTask] = useState("")
+    const [viewAddTask, setViewAddTask] = useState(false)
+
+    const displayAddTask = () => {
+        setViewAddTask(() => viewAddTask ? false : true)    
+    }
+
+  
+    
+    
 
     return(
         <div>
@@ -13,8 +22,9 @@ export default function Planner(){
                 <Highlights/>
                 <Important/>
             </div>
-            <Board/>
-            <AddTask/>
+            <Board taskList={tasklist} />
+            <AddButton displayAddTask={displayAddTask}/>
+            <AddTask viewForm={viewAddTask} displayAddTask={displayAddTask} taskList={tasklist} setTaskList={setTasklist}/>
         </div>  
     )
 
@@ -88,7 +98,7 @@ function Important(){
     )
 }
 
-function Board(){
+function Board({taskList=[], displayActiveTask}){
 
 
     return(
@@ -113,69 +123,25 @@ function Board(){
                         <span>16</span>
                         <span>17</span>
                     </div>
-                    <TaskList/>
+                    <TaskList taskList={taskList} />
                 </div>
             </div>
         </div>
     )
 }
 
+function AddButton({displayAddTask}){
 
-function Task({title,from, to, ...props}){
-    
     return(
-         <Rnd
-            default={{
-                x: 0,
-                y: 100,
-                width: '30vw',
-                height: '6.6vw',
-            }}
-            className="task"
-            minWidth={10}
-            minHeight={5}
-            dragGrid={[20,20]}
-            bounds="parent"
-            >
-            <p>{title}</p>
-            <p>{from} to {to}</p>
-        </Rnd>
+        <div className="addtask" onClick={displayAddTask}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+        </div>
     )
-
 }
 
-function TaskList(){
-    const [list, setList] = useState(
-        [
-            {
-              id: 1,
-              title: "Attend a boring lecture",
-              date: "17/02/2023",
-              from: "11:00",
-              to: "12:30",
-            },
-            {
-              id: 2,
-              title: "Wash dishes",
-              date: "17/02/2023",
-              from: "12:00",
-              to: "13:30",
-            },
-            {
-              id: 3,
-              title: "Do my hair",
-              date: "17/02/2023",
-              from: "15:00",
-              to: "17:00",
-            },
-        ]
-    )
-    return(
-        list.map((i) => {
-            return(<Task key={i.id} title={i.title} from={i.from} to={i.to} />)
-        })
-    )
-}
+
 
 
 

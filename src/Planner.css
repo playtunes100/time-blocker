@@ -1,3 +1,5 @@
+
+
 .date-title {
     margin: 1rem;
     border: 1.5px solid #aeaeae;
@@ -141,10 +143,11 @@ input[type=text] {
 
 .board-main {
     display: flex;
+    height: 100vw;
     border-top: 3px solid #979797;
-    background:radial-gradient(circle at 12% 12%, #979797 5%, transparent 1%) top left repeat, linear-gradient(#e3e3e3, #e3e3e3) no-repeat border-box, linear-gradient(#e3e3e3, #e3e3e3) no-repeat border-box;
-    background-size: 3vw 3vw, 3vw 100%, 3vw 100%;
-    background-position: 0 0, 30.4vw 0, 63.3vw 0;
+    background:radial-gradient(circle at 12% 12%, #979797 5%, transparent 1%) top left repeat, linear-gradient(#979797, #979797) no-repeat border-box, linear-gradient(#e3e3e3, #e3e3e3) no-repeat border-box, linear-gradient(#e3e3e3, #e3e3e3) no-repeat border-box;
+    background-size: 3vw 3vw,  100% .4vw, 3vw 78.5%, 3vw 78.5%;
+    background-position: 0 0, 0 78.4vw, 30.4vw 0, 63.3vw 0;
 }
 
 .task {

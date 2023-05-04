@@ -4,7 +4,7 @@ import Planner from './Planner.js';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <div>
 
         <Planner/>
