@@ -35,11 +35,7 @@ export default function Planner(){
 
 function Header(){
     const newDate = new Date()
-    const day = newDate.getDay()
-    const date = newDate.getDate();
-    const month = newDate.getMonth() + 1;
-    const year = newDate.getFullYear();
-    const full = day + ', ' + date + ' ' + month + ' ' + year;
+
     return(
         <div >
             <div className='date-title'>
