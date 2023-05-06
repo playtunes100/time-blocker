@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/time-blocker/static/css/main.0b863c17.css",
-    "main.js": "/time-blocker/static/js/main.f1ee6e2b.js",
+    "main.css": "/time-blocker/static/css/main.e45dee8e.css",
+    "main.js": "/time-blocker/static/js/main.1a09c141.js",
     "static/js/787.ea730004.chunk.js": "/time-blocker/static/js/787.ea730004.chunk.js",
     "static/media/logo.svg": "/time-blocker/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/time-blocker/index.html",
-    "main.0b863c17.css.map": "/time-blocker/static/css/main.0b863c17.css.map",
-    "main.f1ee6e2b.js.map": "/time-blocker/static/js/main.f1ee6e2b.js.map",
+    "main.e45dee8e.css.map": "/time-blocker/static/css/main.e45dee8e.css.map",
+    "main.1a09c141.js.map": "/time-blocker/static/js/main.1a09c141.js.map",
     "787.ea730004.chunk.js.map": "/time-blocker/static/js/787.ea730004.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b863c17.css",
-    "static/js/main.f1ee6e2b.js"
+    "static/css/main.e45dee8e.css",
+    "static/js/main.1a09c141.js"
   ]
 }
