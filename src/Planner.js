@@ -18,7 +18,7 @@ export default function Planner(){
 
     return(
         <div>
-            <Date/>
+            <Header/>
             <div className='highlights-row'>
                 <Highlights tasklist={tasklist}/>
                 <Important tasklist={tasklist}/>
@@ -33,8 +33,13 @@ export default function Planner(){
 
 }
 
-function Date(){
-
+function Header(){
+    const newDate = new Date()
+    const day = newDate.getDay()
+    const date = newDate.getDate();
+    const month = newDate.getMonth() + 1;
+    const year = newDate.getFullYear();
+    const full = day + ', ' + date + ' ' + month + ' ' + year;
     return(
         <div >
             <div className='date-title'>
@@ -45,7 +50,7 @@ function Date(){
                         <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
                         </svg>
                     </label>
-                    <input type='text' className='date-picker' aria-label="Date" />
+                    <input type='text' className='date-picker' aria-label="Date"value={newDate.toDateString()} />
                     <label className='title-icon'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-card-text" viewBox="0 0 16 16">
                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
