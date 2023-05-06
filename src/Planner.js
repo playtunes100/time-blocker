@@ -1,16 +1,20 @@
 import './Planner.css';
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 export default function Planner(){
     const [tasklist, setTasklist] = useState([])
-    const [activeTask, setActiveTask] = useState("")
     const [viewAddTask, setViewAddTask] = useState(false)
 
     const displayAddTask = () => {
         setViewAddTask(() => viewAddTask ? false : true)    
     }
 
+    
+    const deleteTask = (id) => {
+        setTasklist(tasklist.filter((task) => task.id !== id))
+    
+      }
   
     
     
@@ -19,12 +23,14 @@ export default function Planner(){
         <div>
             <Date/>
             <div className='highlights-row'>
-                <Highlights/>
-                <Important/>
+                <Highlights tasklist={tasklist}/>
+                <Important tasklist={tasklist}/>
             </div>
-            <Board taskList={tasklist} />
+            <Board taskList={tasklist} deleteTask={deleteTask} />
             <AddButton displayAddTask={displayAddTask}/>
             <AddTask viewForm={viewAddTask} displayAddTask={displayAddTask} taskList={tasklist} setTaskList={setTasklist}/>
+            <hr style={{width: '90vw' }}/>
+            <footer style={{height: '10vw'}}></footer>
         </div>  
     )
 
@@ -56,19 +62,20 @@ function Date(){
     )
 }
 
-function Highlights(){
-
+function Highlights({tasklist}){
+    
     return(
         <div className='highlights-col'>
             <h4>DAILY HIGHLIGHT</h4>
             <div className='daily-highlights'>
-                <span className='highlights-text'>
-                    What a wonderful day
-                </span>
-                <hr className='dotted-line'/>
-                <span className='highlights-text'>
-                    Blank state illustration
-                </span>
+            {tasklist.map((i) => { 
+                return ( i.highlight === true ?
+                    <>
+                    <span className='highlights-text'key={i.id}>{i.title}</span> 
+                    <hr className='dotted-line'/>
+                    </>
+                    : <span></span>
+                )})} 
             </div>
             <div>
                 <ul>
@@ -82,23 +89,26 @@ function Highlights(){
     )
 }
 
-function Important(){
+function Important({tasklist}){
 
     return(
         <div className='tasks-col'>
             <h4>IMPORTANT TASKS</h4>
-            <div className='important-tasks'>
-                <span className='highlights-text'>Fix bug with timezones</span>
-            </div>
-            <div className='important-tasks'>
-                <span className='highlights-text'>Update Modal docs that have a place to live with me</span>
-            </div>
-            <div className='important-tasks'></div>
+            {tasklist.map((i) => { 
+                return ( i.important === true ?
+                    <div key={i.id} className='important-tasks'>
+                        <span className='highlights-text'>{i.title}</span>
+                    </div>
+                    : <span></span>
+                )})}
+                {tasklist.filter(i => i.important === true).length === 0 && <div><div className='important-tasks'></div><div className='important-tasks'></div><div className='important-tasks'></div></div> }
+                {tasklist.filter(i => i.important === true).length === 1 && <div><div className='important-tasks'></div><div className='important-tasks'></div></div> }
+                {tasklist.filter(i => i.important === true).length === 2 && <div><div className='important-tasks'></div></div> }
         </div>
     )
 }
 
-function Board({taskList=[], displayActiveTask}){
+function Board({taskList=[], deleteTask}){
 
 
     return(
@@ -111,6 +121,7 @@ function Board({taskList=[], displayActiveTask}){
                 </div>
                 <div className='board-main'>
                     <div className='board-time'>
+                        <span>6</span>
                         <span>7</span>
                         <span>8</span>
                         <span>9</span>
@@ -122,8 +133,9 @@ function Board({taskList=[], displayActiveTask}){
                         <span>15</span>
                         <span>16</span>
                         <span>17</span>
+                        <span>18</span>
                     </div>
-                    <TaskList taskList={taskList} />
+                    <TaskList taskList={taskList} deleteTask={deleteTask} />
                 </div>
             </div>
         </div>

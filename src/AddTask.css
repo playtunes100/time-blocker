@@ -34,7 +34,7 @@
     }
 }
 
-input[type=datetime-local] {
+input[type=date] {
     border: none;
     border-radius: 5px;
   }
