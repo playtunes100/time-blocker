@@ -1,5 +1,10 @@
 .App {
-  
+  font-family: 'Oswald';
   align-content: center;
   justify-content: center;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: local('Oswald'), url(./media/fonts/Oswald-Regular.ttf) format('truetype');
+  
 }

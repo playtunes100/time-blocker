@@ -2,19 +2,21 @@ import './Planner.css';
 import { Rnd } from 'react-rnd';
 
 function Task({id, title,from, to, deleteTask}){
+    const coef = window.innerWidth * 0.03
+    const totime = 2 * (from.split(':')[0] - 6)
     
     return(
          <Rnd
             default={{
                 x: 0,
-                y: 100,
-                width: '30vw',
-                height: '6.6vw',
+                y: coef * totime,
+                width: coef * 8,
+                height: coef * 2,
             }}
             className="task"
-            minWidth={10}
-            minHeight={5}
-            dragGrid={[20,20]}
+            minWidth={coef}
+            minHeight={coef}
+            dragGrid={[coef,coef]}
             bounds="parent"
             
             >

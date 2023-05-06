@@ -1,5 +1,5 @@
 import './Planner.css';
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 export default function Planner(){
@@ -15,9 +15,6 @@ export default function Planner(){
         setTasklist(tasklist.filter((task) => task.id !== id))
     
       }
-  
-    
-    
 
     return(
         <div>
