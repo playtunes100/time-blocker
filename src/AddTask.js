@@ -2,7 +2,7 @@ import { useRef} from 'react';
 import './AddTask.css';
 
 export default function AddTask({viewForm, displayAddTask, taskList, setTaskList}){
-
+    // uncontrolled
     const title = useRef()
     const important = useRef()
     const highlight = useRef()
@@ -38,9 +38,9 @@ export default function AddTask({viewForm, displayAddTask, taskList, setTaskList
 
             <div className='modal' style={{ display: viewForm ? "flex" : "none"}}>
                 <div className='modal-content'>
-                    <div className='addtaskdiv'>
+                    <form className='addtaskdiv' onSubmit={(e) => { e.preventDefault(); addTask(); displayAddTask(); }}>
                         <label for="title">Title</label>
-                        <input type="text" id="title" ref={title} name="title" placeholder="Title..."/>
+                        <input type="text" id="title" ref={title} name="title" placeholder="Title..." required/>
 
                         <label for="importnant">Important
                         <input type="checkbox" id="important" ref={important} name="important" />
@@ -50,18 +50,20 @@ export default function AddTask({viewForm, displayAddTask, taskList, setTaskList
                         </label>
 
                         <label for="date">Date</label>
-                        <input type="date" id="date" ref={date} name="date" />
+                        <input type="date" id="date" ref={date} name="date" required />
 
                         <label for="from">From</label>
-                        <input type="time" id="from" ref={from} name="from"/>
+                        <input type="time" id="from" ref={from} name="from"  min={'06:00'} max={'18:00'} required/>
 
                         <label for="to">To</label>
-                        <input type="time" id="to" ref={to} name="to"/>  
-                    </div>
-                    <div>
+                        <input type="time" id="to" ref={to} name="to" min={from} required/>
+
+                        <div>
                         <button className='button-cancel' onClick={displayAddTask}>Cancel</button>
-                        <button className='button-submit' onClick={() => {addTask(); displayAddTask(); }}> Save</button>
-                    </div>
+                        <button type='submit' className='button-submit'> Save</button>
+                    </div>  
+                    </form>
+                    
                 </div>
             </div>
 
