@@ -13,7 +13,6 @@ I decided to make this because:
 * It helps increase productivity.
 * Demonstrates abitlity to turn design into code.
 
-##
 
 ## Inspiration
 

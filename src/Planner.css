@@ -12,6 +12,18 @@
     border: none;
     flex: 1;
     min-width: 0;
+    max-width: 0;
+}
+
+.date-picker-text {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    flex: 1;
+    min-width: 0;
+    padding-top: 10px;
+    font-size: 0.9rem;
 }
 
 .day-title {
@@ -210,3 +222,6 @@ input[type=text] {
 .del-button:hover {
     background-color: #c4c2c2;
 }
+
+
+

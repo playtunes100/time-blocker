@@ -1,7 +1,7 @@
 import { useRef} from 'react';
-import './AddTask.css';
+import '../AddTask.css';
 
-export default function AddTask({viewForm, displayAddTask, taskList, setTaskList}){
+function AddTask(props){
     // uncontrolled
     const title = useRef()
     const important = useRef()
@@ -12,7 +12,7 @@ export default function AddTask({viewForm, displayAddTask, taskList, setTaskList
 
     const addTask = () => {
         const task = {
-            id: taskList.length === 0 ? 1: taskList[taskList.length - 1].id + 1,
+            id: props.taskList.length === 0 ? 1: props.taskList[props.taskList.length - 1].id + 1,
             title: title.current.value,
             important: important.current.checked,
             highlight: highlight.current.checked,
@@ -20,7 +20,7 @@ export default function AddTask({viewForm, displayAddTask, taskList, setTaskList
             from: from.current.value,
             to: to.current.value,
         }
-        setTaskList([...taskList, task]);
+        props.setTaskList([...props.taskList, task]);
         // clear form
         title.current.value = "";
         important.current.checked = false;
@@ -30,38 +30,42 @@ export default function AddTask({viewForm, displayAddTask, taskList, setTaskList
         to.current.value = "";
     
     }
+
+    const handleDatePicker = (event) => {
+        date.current.showPicker()
+    }
     
 
     return(
         <div>
             
 
-            <div className='modal' style={{ display: viewForm ? "flex" : "none"}}>
+            <div className='modal' style={{ display: props.viewForm ? "flex" : "none"}}>
                 <div className='modal-content'>
-                    <form className='addtaskdiv' onSubmit={(e) => { e.preventDefault(); addTask(); displayAddTask(); }}>
-                        <label for="title">Title</label>
+                    <form className='addtaskdiv' onSubmit={(e) => { e.preventDefault(); addTask(); props.displayAddTask(); }}>
+                        <label htmlFor="title">Title</label>
                         <input type="text" id="title" ref={title} name="title" placeholder="Title..." required/>
 
-                        <label for="importnant">Important
+                        <label htmlFor="importnant">Important
                         <input type="checkbox" id="important" ref={important} name="important" />
                         </label>
-                        <label for="highlight">Highlight
+                        <label htmlFor="highlight">Highlight
                         <input type="checkbox" id="highlight" ref={highlight} name="highlight"/>
                         </label>
 
-                        <label for="date">Date</label>
-                        <input type="date" id="date" ref={date} name="date" required />
+                        <label htmlFor="date">Date</label>
+                        <input type="date" id="date" ref={date} name="date" onClick={handleDatePicker} required />
 
-                        <label for="from">From</label>
+                        <label htmlFor="from">From</label>
                         <input type="time" id="from" ref={from} name="from"  min={'06:00'} max={'18:00'} required/>
 
-                        <label for="to">To</label>
+                        <label htmlFor="to">To</label>
                         <input type="time" id="to" ref={to} name="to" min={from} required/>
 
                         <div>
-                        <button className='button-cancel' onClick={displayAddTask}>Cancel</button>
-                        <button type='submit' className='button-submit'> Save</button>
-                    </div>  
+                            <button className='button-cancel' onClick={props.displayAddTask}>Cancel</button>
+                            <button type='submit' className='button-submit'> Save</button>
+                        </div>  
                     </form>
                     
                 </div>
@@ -70,3 +74,5 @@ export default function AddTask({viewForm, displayAddTask, taskList, setTaskList
         </div>
     )
 }
+
+export default AddTask;
