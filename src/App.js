@@ -1,6 +1,7 @@
 import './App.css';
 import './Planner.css';
-import { useState} from 'react'
+import { useEffect, useState} from 'react'
+import localforage from "localforage";
 import Header from './components/Header.js';
 import Highlights from './components/Highlights.js';
 import Important from './components/Important.js';
@@ -16,26 +17,39 @@ function App() {
     const [viewAddTask, setViewAddTask] = useState(false)
     const today = new Date()
     const [selectedDate, setSelectedDate] = useState(today)
-    const displayAddTask = () => {
-        setViewAddTask(() => viewAddTask ? false : true)    
+    const [selectedTask, setSelectedTask] = useState(null)
+
+    const displayAddTask = (id=null) => {
+        setViewAddTask(() => viewAddTask ? false : true)
+        if(id !== null){
+          setSelectedTask(tasklist.find((task) => task.id === id))
+        }
+        else{
+          setSelectedTask(null)
+        }
+        
     }
 
+    useEffect(() => {
+      localforage.getItem('Items').then((value) => {
+        if (value !== null){setTasklist(value)}
+    })}, [viewAddTask,selectedDate])
+        
     
-    const deleteTask = (id) => {
-        setTasklist(tasklist.filter((task) => task.id !== id))
-    
-    }
+  
   return (
     <div className="App" >
         <div>
             <Header selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
             <div className='highlights-row'>
-                <Highlights tasklist={tasklist}/>
-                <Important tasklist={tasklist}/>
+                <Highlights tasklist={tasklist.filter((task) => task.date === selectedDate.toJSON().split('T')[0])}/>
+                <Important tasklist={tasklist.filter((task) => task.date === selectedDate.toJSON().split('T')[0])}/>
             </div>
-            <Board ><TaskList taskList={tasklist} deleteTask={deleteTask} /></Board>
+            <Board>
+              <TaskList taskList={tasklist.filter((task) => task.date === selectedDate.toJSON().split('T')[0])} displayAddTask={displayAddTask} />
+            </Board>
             <AddButton displayAddTask={displayAddTask}/>
-            <AddTask viewForm={viewAddTask} displayAddTask={displayAddTask} taskList={tasklist} setTaskList={setTasklist}/>
+            <AddTask viewForm={viewAddTask} displayAddTask={displayAddTask} taskList={tasklist} setTaskList={setTasklist} selectedDate={selectedDate} selectedTask={selectedTask} />
             <Footer/>
         </div>
     </div>

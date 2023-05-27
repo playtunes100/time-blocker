@@ -9,7 +9,7 @@ function Highlights(props){
             {props.tasklist.map((i) => { 
                 return ( i.highlight === true ?
                     <>
-                    <span className='highlights-text'key={i.id}>{i.title}</span> 
+                    <span className='highlights-text' key={i.id}>{i.title}</span> 
                     <hr className='dotted-line'/>
                     </>
                     : <span></span>
