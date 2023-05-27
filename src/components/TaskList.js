@@ -25,18 +25,12 @@ function Task(props){
             minHeight={coef}
             dragGrid={[coef,coef]}
             bounds="parent"
-            onDragStart={(e) => {
-                pointer.current = {x: e.clientX, y: e.clientY};
-            }}
-            onDragStop={(e) => {
-                const {x, y} = pointer.current;
-                if (Math.abs(e.clientX - x) < 10 && Math.abs(e.clientY - y) < 10) {
-                    props.displayAddTask(props.id)
-                }
-            }}
+            
             >
+            <div style={{width: '100%', height:'100%'}} onClick={() => props.displayAddTask(props.id)} onGotPointerCapture={() => props.displayAddTask(props.id)}>
             <p>{props.title}</p>
             <p>{props.from} to {props.to}</p>
+            </div>
         </Rnd>
     )
 
