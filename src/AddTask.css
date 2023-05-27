@@ -80,5 +80,9 @@ input[type=date] {
 }
 
 .button-cancel:hover {
-    background-color:#d13737ef;
+    background-color:#9b9b9bef;
+}
+
+.button-delete:hover {
+    background-color:#811c1cef;
 }
