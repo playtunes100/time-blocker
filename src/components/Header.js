@@ -3,12 +3,18 @@ import {useRef} from 'react'
 function Header(props){
     const picker = useRef()
     
-    const handleDatePicker = (event) => {
+    const handleDatePicker = (event) => { 
         picker.current.showPicker()
     }
 
     const handleChange = (event) => {
-        props.setSelectedDate(new Date(picker.current.value))
+        if(picker.current.value !== ""){
+            props.setSelectedDate(new Date(picker.current.value))
+        }
+        else{
+            props.setSelectedDate(new Date())
+        }
+        
     }
     return(
         <div >
